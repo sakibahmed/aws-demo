@@ -7,14 +7,8 @@ export class AwsDemoStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    // The code that defines your stack goes here
-
-    // example resource
-    // const queue = new sqs.Queue(this, 'AwsDemoQueue', {
-    //   visibilityTimeout: cdk.Duration.seconds(300)
-    // });
-
     const bucket = new s3.Bucket(this, "MyFirstBucketName");
+
     new cdk.CfnOutput(this, "MyFirstBucketNameExport", {
       value: bucket.bucketName,
       exportName: "MyFirstBucketName",
